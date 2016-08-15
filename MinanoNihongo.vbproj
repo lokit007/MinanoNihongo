@@ -236,7 +236,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\IconFiles\" />
-    <Folder Include="Resources\ImageFiles\" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="AxWMPLib">
@@ -258,7 +257,12 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\AudioFiles\1 - 1 - Kotoba.mp3" />
+    <Content Include="Resources\AudioFiles\1 - 2 - Bunkei.mp3" />
+    <Content Include="Resources\AudioFiles\1 - 3 - Reibun.mp3" />
+    <Content Include="Resources\AudioFiles\1 - 5 - Kaiwa.mp3" />
     <Content Include="Resources\AudioFiles\Bai1_Kotoba_1.mp3" />
+    <Content Include="Resources\ImageFiles\Bai1_Kotoba_1.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -11,13 +11,28 @@ Public Class GiaoTrinh_Parent
 
     Private Sub GiaoTrinh_Parent_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         conn = connect.getConnect
-        btnTuVung_Click(sender, e)
+
+        clstBaiHoc.Items.Clear()
+
+        Dim dt As DataTable = getBaiHoc()
+        If Not IsNothing(dt) AndAlso dt.Rows.Count > 0 Then
+            For Each r As DataRow In dt.Rows
+                clstBaiHoc.Items.Add(r.Item("TenBaiHoc"))
+
+            Next
+
+        End If
+
+        selectButton("TuVung")
+        tuVung.InitListTuVung(getListTuVung(getTuVung()))
+        pnMain.Controls.Clear()
+        pnMain.Controls.Add(tuVung)
 
     End Sub
 
     Private Sub btnTuVung_Click(sender As Object, e As EventArgs) Handles btnTuVung.Click
         selectButton("TuVung")
-
+        tuVung.InitListTuVung(getListTuVung(getTuVung()))
         pnMain.Controls.Clear()
         pnMain.Controls.Add(tuVung)
 
@@ -25,11 +40,17 @@ Public Class GiaoTrinh_Parent
 
     Private Sub btnNguPhap_Click(sender As Object, e As EventArgs) Handles btnNguPhap.Click
         selectButton("NguPhap")
+        nguPhap.InitListNguPhap(getListNguPhap(getNguPhap()))
+        pnMain.Controls.Clear()
+        pnMain.Controls.Add(nguPhap)
 
     End Sub
 
     Private Sub btnHoiThoai_Click(sender As Object, e As EventArgs) Handles btnHoiThoai.Click
         selectButton("HoiThoai")
+        hoiThoai.InitListHoiThoai(getListHoiThoai(getHoiThoai()))
+        pnMain.Controls.Clear()
+        pnMain.Controls.Add(hoiThoai)
 
     End Sub
 
@@ -123,6 +144,7 @@ Public Class GiaoTrinh_Parent
             End If
 
         Catch ex As Exception
+            MsgBox(ex.ToString)
             Throw
 
         End Try
@@ -203,7 +225,7 @@ Public Class GiaoTrinh_Parent
                 For Each row As DataRow In dtResult.Rows
                     viDu = New ViDu_Object
                     viDu.idViDu = row.Item("IdViDu")
-                    viDu.noiDung = row.Item("NoiDung")
+                    viDu.noiDung = row.Item("ViDu")
                     viDu.hanTu = row.Item("HanTu")
                     viDu.nguNghia = row.Item("Nghia")
                     viDu.urlAnhMoTa = row.Item("AnhMoTa")
@@ -227,6 +249,35 @@ Public Class GiaoTrinh_Parent
 
     End Function
 
+    Private Function getBaiHoc() As DataTable
+        Dim strSQL As New StringBuilder
+        Dim dtResult As New DataTable
+        Dim cmd As New SqlCommand
+        Dim da As SqlDataAdapter
+
+        Try
+            strSQL.Append("select * from BAIHOC ")
+            
+            cmd.CommandText = strSQL.ToString
+            cmd.CommandType = CommandType.Text
+            cmd.Connection = conn
+
+            conn.Open()
+            da = New SqlDataAdapter(cmd)
+            da.Fill(dtResult)
+
+            cmd.Dispose()
+            da.Dispose()
+            conn.Close()
+
+            Return dtResult
+
+        Catch ex As Exception
+            Throw
+        End Try
+
+    End Function
+
     Private Function getTuVung() As DataTable
         Dim strSQL As New StringBuilder
         Dim dtResult As New DataTable
@@ -235,21 +286,24 @@ Public Class GiaoTrinh_Parent
         Dim lstBai As New List(Of String)
 
         Try
-            For Each bai In clstBaiHoc.SelectedItems
-                lstBai.Add(bai)
+            For Each bai In clstBaiHoc.CheckedItems
+                lstBai.Add("'" & bai & "'")
+
             Next
 
             strSQL.Append("select TUVUNG.IdTuVung, TUVUNG.TuVung , TUVUNG.HanTu , TUVUNG.Nghia , TUVUNG.AnhMoTa , TUVUNG.AmDieu from TUVUNG ")
             strSQL.Append("inner join TUVUNGBAI on TUVUNG.IdTuVung = TUVUNGBAI.TuVung ")
             strSQL.Append("inner join BAIHOC on TUVUNGBAI .BaiHoc = BAIHOC .IdBaiHoc ")
-            strSQL.Append("where IdBaiHoc in (" & String.Join(",", lstBai) & ")")
+
+            If lstBai.Count > 0 Then
+                strSQL.Append("where TenBaiHoc in (" & String.Join(",", lstBai) & ")")
+            End If
 
             cmd.CommandText = strSQL.ToString
             cmd.CommandType = CommandType.Text
             cmd.Connection = conn
 
             conn.Open()
-
             da = New SqlDataAdapter(cmd)
             da.Fill(dtResult)
 
@@ -273,14 +327,17 @@ Public Class GiaoTrinh_Parent
         Dim lstBai As New List(Of String)
 
         Try
-            For Each bai In clstBaiHoc.SelectedItems
-                lstBai.Add(bai)
+            For Each bai In clstBaiHoc.CheckedItems
+                lstBai.Add("'" & bai & "'")
             Next
 
             strSQL.Append("select NGUPHAP.IdNguPhap, NGUPHAP.CauTruc, NGUPHAP.CachDung, NGUPHAP.NguNghia from NGUPHAP ")
             strSQL.Append("inner join NGUPHAPBAI on NGUPHAP.IdNguPhap = NGUPHAPBAI.NguPhap ")
             strSQL.Append("inner join BAIHOC on NGUPHAPBAI.BaiHoc = BAIHOC.IdBaiHoc ")
-            strSQL.Append("where IdBaiHoc in (" & String.Join(",", lstBai) & ")")
+
+            If lstBai.Count > 0 Then
+                strSQL.Append("where TenBaiHoc in (" & String.Join(",", lstBai) & ")")
+            End If
 
             cmd.CommandText = strSQL.ToString
             cmd.CommandType = CommandType.Text
@@ -311,14 +368,17 @@ Public Class GiaoTrinh_Parent
         Dim lstBai As New List(Of String)
 
         Try
-            For Each bai In clstBaiHoc.SelectedItems
-                lstBai.Add(bai)
+            For Each bai In clstBaiHoc.CheckedItems
+                lstBai.Add("'" & bai & "'")
             Next
 
             strSQL.Append("select HOITHOAI.IdHoiThoai, HOITHOAI.NoiDung, HOITHOAI.HanTu, HOITHOAI.PhienDich, HOITHOAI.DocHoiThoai, HOITHOAI.Video from HOITHOAI ")
             strSQL.Append("inner join HOITHOAIBAI on HOITHOAIBAI.HoiThoai = HOITHOAI.IdHoiThoai ")
             strSQL.Append("inner join BAIHOC on HOITHOAIBAI.HoiThoai = HOITHOAIBAI.BaiHoc ")
-            strSQL.Append("where IdBaiHoc in (" & String.Join(",", lstBai) & ")")
+
+            If lstBai.Count > 0 Then
+                strSQL.Append("where TenBaiHoc in (" & String.Join(",", lstBai) & ")")
+            End If
 
             cmd.CommandText = strSQL.ToString
             cmd.CommandType = CommandType.Text
@@ -349,10 +409,6 @@ Public Class GiaoTrinh_Parent
         Dim lstBai As New List(Of String)
 
         Try
-            For Each bai In clstBaiHoc.SelectedItems
-                lstBai.Add(bai)
-            Next
-
             strSQL.Append("select VIDU.IdViDu, VIDU.ViDu, VIDU.HanTu, VIDU.Nghia, VIDU.AnhMoTa, VIDU.AmDieu from VIDU ")
             strSQL.Append("inner join VIDUCHO on VIDU.IdViDu = VIDUCHO.ViDu ")
             strSQL.Append("where VIDUCHO.TuKhoa = @Khoa and VIDUCHO.BangLienKet like @Bang")

@@ -34,7 +34,7 @@ Partial Class ucTuVung
         Me.btnThuoc = New System.Windows.Forms.Button()
         Me.btnKiemTra = New System.Windows.Forms.Button()
         Me.btnNgheLai = New System.Windows.Forms.Button()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.lblTrangThai = New System.Windows.Forms.Label()
         CType(Me.pcbAnhMinhHoa, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -83,39 +83,47 @@ Partial Class ucTuVung
         '
         'tbTuVung
         '
+        Me.tbTuVung.Font = New System.Drawing.Font("MS Gothic", 16.15!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.tbTuVung.Location = New System.Drawing.Point(223, 9)
         Me.tbTuVung.Multiline = True
         Me.tbTuVung.Name = "tbTuVung"
         Me.tbTuVung.ReadOnly = True
         Me.tbTuVung.Size = New System.Drawing.Size(318, 50)
         Me.tbTuVung.TabIndex = 3
+        Me.tbTuVung.Text = "ありがとう"
         '
         'tbHanTu
         '
+        Me.tbHanTu.Font = New System.Drawing.Font("MS Gothic", 16.15!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.tbHanTu.Location = New System.Drawing.Point(223, 65)
         Me.tbHanTu.Multiline = True
         Me.tbHanTu.Name = "tbHanTu"
         Me.tbHanTu.ReadOnly = True
         Me.tbHanTu.Size = New System.Drawing.Size(318, 50)
         Me.tbHanTu.TabIndex = 3
+        Me.tbHanTu.Text = "ありがとう"
         '
         'tbNguNghia
         '
+        Me.tbNguNghia.Font = New System.Drawing.Font("Times New Roman", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbNguNghia.Location = New System.Drawing.Point(223, 121)
         Me.tbNguNghia.Multiline = True
         Me.tbNguNghia.Name = "tbNguNghia"
         Me.tbNguNghia.ReadOnly = True
         Me.tbNguNghia.Size = New System.Drawing.Size(318, 88)
         Me.tbNguNghia.TabIndex = 3
+        Me.tbNguNghia.Text = "Cam on nhieu"
         '
         'tbViDu
         '
+        Me.tbViDu.Font = New System.Drawing.Font("MS Gothic", 16.15!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.tbViDu.Location = New System.Drawing.Point(223, 215)
         Me.tbViDu.Multiline = True
         Me.tbViDu.Name = "tbViDu"
         Me.tbViDu.ReadOnly = True
         Me.tbViDu.Size = New System.Drawing.Size(318, 134)
         Me.tbViDu.TabIndex = 3
+        Me.tbViDu.Text = "ありがとう"
         '
         'btnTiep
         '
@@ -153,22 +161,22 @@ Partial Class ucTuVung
         Me.btnNgheLai.Text = "Nghe lại"
         Me.btnNgheLai.UseVisualStyleBackColor = True
         '
-        'Label1
+        'lblTrangThai
         '
-        Me.Label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(6, 355)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(208, 33)
-        Me.Label1.TabIndex = 5
-        Me.Label1.Text = "Label1"
-        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.lblTrangThai.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lblTrangThai.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTrangThai.Location = New System.Drawing.Point(6, 355)
+        Me.lblTrangThai.Name = "lblTrangThai"
+        Me.lblTrangThai.Size = New System.Drawing.Size(208, 33)
+        Me.lblTrangThai.TabIndex = 5
+        Me.lblTrangThai.Text = "Label1"
+        Me.lblTrangThai.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'ucTuVung
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.lblTrangThai)
         Me.Controls.Add(Me.btnNgheLai)
         Me.Controls.Add(Me.btnKiemTra)
         Me.Controls.Add(Me.btnThuoc)
@@ -201,5 +209,5 @@ Partial Class ucTuVung
     Friend WithEvents btnThuoc As Button
     Friend WithEvents btnKiemTra As Button
     Friend WithEvents btnNgheLai As Button
-    Friend WithEvents Label1 As Label
+    Friend WithEvents lblTrangThai As Label
 End Class

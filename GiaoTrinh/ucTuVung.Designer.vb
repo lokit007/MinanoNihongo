@@ -35,14 +35,16 @@ Partial Class ucTuVung
         Me.btnKiemTra = New System.Windows.Forms.Button()
         Me.btnNgheLai = New System.Windows.Forms.Button()
         Me.lblTrangThai = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
         CType(Me.pcbAnhMinhHoa, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'pcbAnhMinhHoa
         '
+        Me.pcbAnhMinhHoa.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.pcbAnhMinhHoa.Location = New System.Drawing.Point(6, 8)
         Me.pcbAnhMinhHoa.Name = "pcbAnhMinhHoa"
-        Me.pcbAnhMinhHoa.Size = New System.Drawing.Size(208, 246)
+        Me.pcbAnhMinhHoa.Size = New System.Drawing.Size(208, 201)
         Me.pcbAnhMinhHoa.TabIndex = 0
         Me.pcbAnhMinhHoa.TabStop = False
         '
@@ -172,10 +174,23 @@ Partial Class ucTuVung
         Me.lblTrangThai.Text = "Label1"
         Me.lblTrangThai.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.Color.LawnGreen
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.ForeColor = System.Drawing.Color.SaddleBrown
+        Me.Button1.Location = New System.Drawing.Point(6, 215)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(208, 38)
+        Me.Button1.TabIndex = 6
+        Me.Button1.Text = "Thêm từ mới"
+        Me.Button1.UseVisualStyleBackColor = False
+        '
         'ucTuVung
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.lblTrangThai)
         Me.Controls.Add(Me.btnNgheLai)
         Me.Controls.Add(Me.btnKiemTra)
@@ -210,4 +225,5 @@ Partial Class ucTuVung
     Friend WithEvents btnKiemTra As Button
     Friend WithEvents btnNgheLai As Button
     Friend WithEvents lblTrangThai As Label
+    Friend WithEvents Button1 As Button
 End Class

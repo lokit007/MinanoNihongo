@@ -52,12 +52,14 @@ Partial Class ucHoiThoai
         '
         'btnNoiDung
         '
+        Me.btnNoiDung.BackColor = System.Drawing.Color.IndianRed
+        Me.btnNoiDung.ForeColor = System.Drawing.Color.White
         Me.btnNoiDung.Location = New System.Drawing.Point(243, 6)
         Me.btnNoiDung.Name = "btnNoiDung"
         Me.btnNoiDung.Size = New System.Drawing.Size(75, 23)
         Me.btnNoiDung.TabIndex = 2
         Me.btnNoiDung.Text = "Nội dung"
-        Me.btnNoiDung.UseVisualStyleBackColor = True
+        Me.btnNoiDung.UseVisualStyleBackColor = False
         '
         'btnHanTu
         '

@@ -101,6 +101,12 @@
     <Compile Include="GiaoTrinh\GiaoTrinh_Parent.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="GiaoTrinh\ThemTuVung.Designer.vb">
+      <DependentUpon>ThemTuVung.vb</DependentUpon>
+    </Compile>
+    <Compile Include="GiaoTrinh\ThemTuVung.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="GiaoTrinh\ucHoiThoai.Designer.vb">
       <DependentUpon>ucHoiThoai.vb</DependentUpon>
     </Compile>
@@ -193,6 +199,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GiaoTrinh\GiaoTrinh_Parent.resx">
       <DependentUpon>GiaoTrinh_Parent.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GiaoTrinh\ThemTuVung.resx">
+      <DependentUpon>ThemTuVung.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GiaoTrinh\ucHoiThoai.resx">
       <DependentUpon>ucHoiThoai.vb</DependentUpon>

@@ -22,138 +22,243 @@ Partial Class ThemTuVung
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ThemTuVung))
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.AxWindowsMediaPlayer1 = New AxWMPLib.AxWindowsMediaPlayer()
-        Me.ListBox1 = New System.Windows.Forms.ListBox()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.AxWindowsMediaPlayer1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ptbAnhMinhHoa = New System.Windows.Forms.PictureBox()
+        Me.cbBaiHoc = New System.Windows.Forms.ComboBox()
+        Me.tbTuVung = New System.Windows.Forms.TextBox()
+        Me.tbHanTu = New System.Windows.Forms.TextBox()
+        Me.tbNguNghia = New System.Windows.Forms.TextBox()
+        Me.lbViDu = New System.Windows.Forms.ListBox()
+        Me.btnGhiAm = New System.Windows.Forms.Button()
+        Me.btnLuuDung = New System.Windows.Forms.Button()
+        Me.btnNgheLai = New System.Windows.Forms.Button()
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.tbAmDieu = New System.Windows.Forms.TextBox()
+        Me.lbDinhKem = New System.Windows.Forms.Label()
+        Me.tbViDu = New System.Windows.Forms.TextBox()
+        Me.tbDichNghia = New System.Windows.Forms.TextBox()
+        Me.btnThemViDu = New System.Windows.Forms.Button()
+        Me.btnXoaTrong = New System.Windows.Forms.Button()
+        Me.btnXoaViDu = New System.Windows.Forms.Button()
+        Me.btnThemTuVung = New System.Windows.Forms.Button()
+        CType(Me.ptbAnhMinhHoa, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'PictureBox1
+        'ptbAnhMinhHoa
         '
-        Me.PictureBox1.Location = New System.Drawing.Point(10, 42)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(215, 204)
-        Me.PictureBox1.TabIndex = 0
-        Me.PictureBox1.TabStop = False
+        Me.ptbAnhMinhHoa.BackgroundImage = CType(resources.GetObject("ptbAnhMinhHoa.BackgroundImage"), System.Drawing.Image)
+        Me.ptbAnhMinhHoa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.ptbAnhMinhHoa.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ptbAnhMinhHoa.Location = New System.Drawing.Point(10, 42)
+        Me.ptbAnhMinhHoa.Name = "ptbAnhMinhHoa"
+        Me.ptbAnhMinhHoa.Size = New System.Drawing.Size(215, 226)
+        Me.ptbAnhMinhHoa.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.ptbAnhMinhHoa.TabIndex = 0
+        Me.ptbAnhMinhHoa.TabStop = False
         '
-        'ComboBox1
+        'cbBaiHoc
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(10, 15)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(215, 21)
-        Me.ComboBox1.TabIndex = 1
+        Me.cbBaiHoc.FormattingEnabled = True
+        Me.cbBaiHoc.Location = New System.Drawing.Point(10, 15)
+        Me.cbBaiHoc.Name = "cbBaiHoc"
+        Me.cbBaiHoc.Size = New System.Drawing.Size(215, 21)
+        Me.cbBaiHoc.TabIndex = 1
+        Me.cbBaiHoc.Text = "Thêm vào bài"
         '
-        'TextBox1
+        'tbTuVung
         '
-        Me.TextBox1.Location = New System.Drawing.Point(231, 15)
-        Me.TextBox1.Multiline = True
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(297, 60)
-        Me.TextBox1.TabIndex = 2
+        Me.tbTuVung.Location = New System.Drawing.Point(231, 15)
+        Me.tbTuVung.Multiline = True
+        Me.tbTuVung.Name = "tbTuVung"
+        Me.tbTuVung.Size = New System.Drawing.Size(297, 60)
+        Me.tbTuVung.TabIndex = 2
+        Me.tbTuVung.Text = "Từ vựng"
         '
-        'TextBox2
+        'tbHanTu
         '
-        Me.TextBox2.Location = New System.Drawing.Point(231, 81)
-        Me.TextBox2.Multiline = True
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(297, 60)
-        Me.TextBox2.TabIndex = 2
+        Me.tbHanTu.Location = New System.Drawing.Point(231, 81)
+        Me.tbHanTu.Multiline = True
+        Me.tbHanTu.Name = "tbHanTu"
+        Me.tbHanTu.Size = New System.Drawing.Size(297, 60)
+        Me.tbHanTu.TabIndex = 2
+        Me.tbHanTu.Text = "Hán tự"
         '
-        'TextBox3
+        'tbNguNghia
         '
-        Me.TextBox3.Location = New System.Drawing.Point(231, 147)
-        Me.TextBox3.Multiline = True
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(297, 60)
-        Me.TextBox3.TabIndex = 2
+        Me.tbNguNghia.Location = New System.Drawing.Point(231, 147)
+        Me.tbNguNghia.Multiline = True
+        Me.tbNguNghia.Name = "tbNguNghia"
+        Me.tbNguNghia.Size = New System.Drawing.Size(297, 60)
+        Me.tbNguNghia.TabIndex = 2
+        Me.tbNguNghia.Text = "Ngữ nghĩa"
         '
-        'AxWindowsMediaPlayer1
+        'lbViDu
         '
-        Me.AxWindowsMediaPlayer1.Enabled = True
-        Me.AxWindowsMediaPlayer1.Location = New System.Drawing.Point(231, 213)
-        Me.AxWindowsMediaPlayer1.Name = "AxWindowsMediaPlayer1"
-        Me.AxWindowsMediaPlayer1.OcxState = CType(resources.GetObject("AxWindowsMediaPlayer1.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.AxWindowsMediaPlayer1.Size = New System.Drawing.Size(297, 33)
-        Me.AxWindowsMediaPlayer1.TabIndex = 3
+        Me.lbViDu.FormattingEnabled = True
+        Me.lbViDu.Location = New System.Drawing.Point(8, 274)
+        Me.lbViDu.Name = "lbViDu"
+        Me.lbViDu.ScrollAlwaysVisible = True
+        Me.lbViDu.Size = New System.Drawing.Size(519, 121)
+        Me.lbViDu.TabIndex = 4
         '
-        'ListBox1
+        'btnGhiAm
         '
-        Me.ListBox1.FormattingEnabled = True
-        Me.ListBox1.Location = New System.Drawing.Point(8, 261)
-        Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.ScrollAlwaysVisible = True
-        Me.ListBox1.Size = New System.Drawing.Size(519, 134)
-        Me.ListBox1.TabIndex = 4
+        Me.btnGhiAm.AutoSize = True
+        Me.btnGhiAm.Image = CType(resources.GetObject("btnGhiAm.Image"), System.Drawing.Image)
+        Me.btnGhiAm.Location = New System.Drawing.Point(443, 209)
+        Me.btnGhiAm.Name = "btnGhiAm"
+        Me.btnGhiAm.Size = New System.Drawing.Size(25, 24)
+        Me.btnGhiAm.TabIndex = 5
+        Me.btnGhiAm.UseVisualStyleBackColor = True
         '
-        'Button1
+        'btnLuuDung
         '
-        Me.Button1.Location = New System.Drawing.Point(12, 418)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 5
-        Me.Button1.Text = "Thu âm"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnLuuDung.Image = CType(resources.GetObject("btnLuuDung.Image"), System.Drawing.Image)
+        Me.btnLuuDung.Location = New System.Drawing.Point(474, 209)
+        Me.btnLuuDung.Name = "btnLuuDung"
+        Me.btnLuuDung.Size = New System.Drawing.Size(25, 24)
+        Me.btnLuuDung.TabIndex = 5
+        Me.btnLuuDung.UseVisualStyleBackColor = True
         '
-        'Button2
+        'btnNgheLai
         '
-        Me.Button2.Location = New System.Drawing.Point(102, 418)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 23)
-        Me.Button2.TabIndex = 5
-        Me.Button2.Text = "Dừng"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.btnNgheLai.Image = CType(resources.GetObject("btnNgheLai.Image"), System.Drawing.Image)
+        Me.btnNgheLai.Location = New System.Drawing.Point(502, 209)
+        Me.btnNgheLai.Name = "btnNgheLai"
+        Me.btnNgheLai.Size = New System.Drawing.Size(25, 24)
+        Me.btnNgheLai.TabIndex = 5
+        Me.btnNgheLai.UseVisualStyleBackColor = True
         '
-        'Button3
+        'OpenFileDialog1
         '
-        Me.Button3.Location = New System.Drawing.Point(197, 418)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(75, 23)
-        Me.Button3.TabIndex = 5
-        Me.Button3.Text = "Mở"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
+        '
+        'Timer1
+        '
+        Me.Timer1.Interval = 1000
+        '
+        'tbAmDieu
+        '
+        Me.tbAmDieu.Location = New System.Drawing.Point(231, 213)
+        Me.tbAmDieu.Name = "tbAmDieu"
+        Me.tbAmDieu.ReadOnly = True
+        Me.tbAmDieu.Size = New System.Drawing.Size(206, 20)
+        Me.tbAmDieu.TabIndex = 6
+        '
+        'lbDinhKem
+        '
+        Me.lbDinhKem.Image = CType(resources.GetObject("lbDinhKem.Image"), System.Drawing.Image)
+        Me.lbDinhKem.Location = New System.Drawing.Point(416, 214)
+        Me.lbDinhKem.Name = "lbDinhKem"
+        Me.lbDinhKem.Size = New System.Drawing.Size(16, 16)
+        Me.lbDinhKem.TabIndex = 7
+        '
+        'tbViDu
+        '
+        Me.tbViDu.Location = New System.Drawing.Point(8, 408)
+        Me.tbViDu.Multiline = True
+        Me.tbViDu.Name = "tbViDu"
+        Me.tbViDu.Size = New System.Drawing.Size(519, 38)
+        Me.tbViDu.TabIndex = 9
+        Me.tbViDu.Text = "Ví dụ minh họa ..."
+        '
+        'tbDichNghia
+        '
+        Me.tbDichNghia.Location = New System.Drawing.Point(8, 452)
+        Me.tbDichNghia.Multiline = True
+        Me.tbDichNghia.Name = "tbDichNghia"
+        Me.tbDichNghia.Size = New System.Drawing.Size(519, 38)
+        Me.tbDichNghia.TabIndex = 9
+        Me.tbDichNghia.Text = "Dịch nghĩa câu ví dụ ..."
+        '
+        'btnThemViDu
+        '
+        Me.btnThemViDu.Location = New System.Drawing.Point(453, 496)
+        Me.btnThemViDu.Name = "btnThemViDu"
+        Me.btnThemViDu.Size = New System.Drawing.Size(75, 23)
+        Me.btnThemViDu.TabIndex = 10
+        Me.btnThemViDu.Text = "Thêm ví dụ"
+        Me.btnThemViDu.UseVisualStyleBackColor = True
+        '
+        'btnXoaTrong
+        '
+        Me.btnXoaTrong.Location = New System.Drawing.Point(372, 496)
+        Me.btnXoaTrong.Name = "btnXoaTrong"
+        Me.btnXoaTrong.Size = New System.Drawing.Size(75, 23)
+        Me.btnXoaTrong.TabIndex = 10
+        Me.btnXoaTrong.Text = "Xóa trống"
+        Me.btnXoaTrong.UseVisualStyleBackColor = True
+        '
+        'btnXoaViDu
+        '
+        Me.btnXoaViDu.Location = New System.Drawing.Point(291, 496)
+        Me.btnXoaViDu.Name = "btnXoaViDu"
+        Me.btnXoaViDu.Size = New System.Drawing.Size(75, 23)
+        Me.btnXoaViDu.TabIndex = 10
+        Me.btnXoaViDu.Text = "Xóa ví dụ"
+        Me.btnXoaViDu.UseVisualStyleBackColor = True
+        '
+        'btnThemTuVung
+        '
+        Me.btnThemTuVung.BackColor = System.Drawing.Color.LimeGreen
+        Me.btnThemTuVung.Font = New System.Drawing.Font("Times New Roman", 13.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(177, Byte))
+        Me.btnThemTuVung.ForeColor = System.Drawing.Color.DarkRed
+        Me.btnThemTuVung.Location = New System.Drawing.Point(231, 239)
+        Me.btnThemTuVung.Name = "btnThemTuVung"
+        Me.btnThemTuVung.Size = New System.Drawing.Size(296, 29)
+        Me.btnThemTuVung.TabIndex = 11
+        Me.btnThemTuVung.Text = "Thêm từ vựng mới"
+        Me.btnThemTuVung.UseVisualStyleBackColor = False
         '
         'ThemTuVung
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(540, 453)
-        Me.Controls.Add(Me.Button3)
-        Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.ListBox1)
-        Me.Controls.Add(Me.AxWindowsMediaPlayer1)
-        Me.Controls.Add(Me.TextBox3)
-        Me.Controls.Add(Me.TextBox2)
-        Me.Controls.Add(Me.TextBox1)
-        Me.Controls.Add(Me.ComboBox1)
-        Me.Controls.Add(Me.PictureBox1)
+        Me.ClientSize = New System.Drawing.Size(540, 525)
+        Me.Controls.Add(Me.btnThemTuVung)
+        Me.Controls.Add(Me.btnXoaViDu)
+        Me.Controls.Add(Me.btnXoaTrong)
+        Me.Controls.Add(Me.btnThemViDu)
+        Me.Controls.Add(Me.tbDichNghia)
+        Me.Controls.Add(Me.tbViDu)
+        Me.Controls.Add(Me.lbDinhKem)
+        Me.Controls.Add(Me.tbAmDieu)
+        Me.Controls.Add(Me.btnNgheLai)
+        Me.Controls.Add(Me.btnLuuDung)
+        Me.Controls.Add(Me.btnGhiAm)
+        Me.Controls.Add(Me.lbViDu)
+        Me.Controls.Add(Me.tbNguNghia)
+        Me.Controls.Add(Me.tbHanTu)
+        Me.Controls.Add(Me.tbTuVung)
+        Me.Controls.Add(Me.cbBaiHoc)
+        Me.Controls.Add(Me.ptbAnhMinhHoa)
         Me.Name = "ThemTuVung"
-        Me.Text = "ThemTuVung"
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.AxWindowsMediaPlayer1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Text = "Thêm từ vựng mới"
+        CType(Me.ptbAnhMinhHoa, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents ComboBox1 As ComboBox
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents TextBox3 As TextBox
-    Friend WithEvents AxWindowsMediaPlayer1 As AxWMPLib.AxWindowsMediaPlayer
-    Friend WithEvents ListBox1 As ListBox
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Button2 As Button
-    Friend WithEvents Button3 As Button
+    Friend WithEvents ptbAnhMinhHoa As PictureBox
+    Friend WithEvents cbBaiHoc As ComboBox
+    Friend WithEvents tbTuVung As TextBox
+    Friend WithEvents tbHanTu As TextBox
+    Friend WithEvents tbNguNghia As TextBox
+    Friend WithEvents lbViDu As ListBox
+    Friend WithEvents btnGhiAm As Button
+    Friend WithEvents btnLuuDung As Button
+    Friend WithEvents btnNgheLai As Button
+    Friend WithEvents OpenFileDialog1 As System.Windows.Forms.OpenFileDialog
+    Friend WithEvents Timer1 As System.Windows.Forms.Timer
+    Friend WithEvents tbAmDieu As System.Windows.Forms.TextBox
+    Friend WithEvents lbDinhKem As System.Windows.Forms.Label
+    Friend WithEvents tbViDu As System.Windows.Forms.TextBox
+    Friend WithEvents tbDichNghia As System.Windows.Forms.TextBox
+    Friend WithEvents btnThemViDu As System.Windows.Forms.Button
+    Friend WithEvents btnXoaTrong As System.Windows.Forms.Button
+    Friend WithEvents btnXoaViDu As System.Windows.Forms.Button
+    Friend WithEvents btnThemTuVung As System.Windows.Forms.Button
 End Class

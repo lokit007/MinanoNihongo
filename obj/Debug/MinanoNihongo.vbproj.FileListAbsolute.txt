@@ -46,3 +46,4 @@ E:\DUAN\VBNET\MinanoNihongo\MinanoNihongo\MinanoNihongo\obj\Debug\MinanoNihongo.
 E:\DUAN\VBNET\MinanoNihongo\MinanoNihongo\MinanoNihongo\obj\Debug\MinanoNihongo.pdb
 E:\DUAN\VBNET\MinanoNihongo\MinanoNihongo\MinanoNihongo\obj\Debug\MinanoNihongo.vbprojResolveAssemblyReference.cache
 E:\DUAN\VBNET\MinanoNihongo\MinanoNihongo\MinanoNihongo\obj\Debug\MinanoNihongo.ThemTuVung.resources
+E:\DUAN\VBNET\MinanoNihongo\MinanoNihongo\MinanoNihongo\obj\Debug\MinanoNihongo.ucKiemTra.resources

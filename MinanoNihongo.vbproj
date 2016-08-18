@@ -113,6 +113,12 @@
     <Compile Include="GiaoTrinh\ucHoiThoai.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="GiaoTrinh\ucKiemTra.Designer.vb">
+      <DependentUpon>ucKiemTra.vb</DependentUpon>
+    </Compile>
+    <Compile Include="GiaoTrinh\ucKiemTra.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="GiaoTrinh\ucNguPhap.Designer.vb">
       <DependentUpon>ucNguPhap.vb</DependentUpon>
     </Compile>
@@ -205,6 +211,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GiaoTrinh\ucHoiThoai.resx">
       <DependentUpon>ucHoiThoai.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GiaoTrinh\ucKiemTra.resx">
+      <DependentUpon>ucKiemTra.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GiaoTrinh\ucNguPhap.resx">
       <DependentUpon>ucNguPhap.vb</DependentUpon>

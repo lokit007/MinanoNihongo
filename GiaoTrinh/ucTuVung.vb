@@ -183,4 +183,11 @@ Public Class ucTuVung
 
     End Sub
 
+    Private Sub btnThemTuMoi_Click(sender As Object, e As EventArgs) Handles btnThemTuMoi.Click
+        Dim obj As New ThemTuVung
+        obj.ShowDialog()
+        My.Forms.GiaoTrinh_Parent.Refresh()
+
+    End Sub
+
 End Class

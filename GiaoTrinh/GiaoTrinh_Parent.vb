@@ -7,7 +7,7 @@ Public Class GiaoTrinh_Parent
     Private tuVung As New ucTuVung
     Private nguPhap As New ucNguPhap
     Private hoiThoai As New ucHoiThoai
-    Private tracNghiem As New ucTracNghiem
+    Private kiemTra As New ucKiemTra
 
     Private Sub GiaoTrinh_Parent_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         conn = connect.getConnect
@@ -56,6 +56,9 @@ Public Class GiaoTrinh_Parent
 
     Private Sub btnKiemTra_Click(sender As Object, e As EventArgs) Handles btnKiemTra.Click
         selectButton("KiemTra")
+        kiemTra.InitListTuVung(getListTuVung(getTuVung()))
+        pnMain.Controls.Clear()
+        pnMain.Controls.Add(kiemTra)
 
     End Sub
 

@@ -1,5 +1,4 @@
-﻿Imports AxWMPLib
-Imports WMPLib
+﻿Imports WMPLib
 
 Public Class ucTuVung
     Private lst As List(Of TuVung_Object)

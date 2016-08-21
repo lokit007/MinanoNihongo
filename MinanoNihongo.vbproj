@@ -70,6 +70,18 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChaoHoi\ChaoHoi_Parent.Designer.vb">
+      <DependentUpon>ChaoHoi_Parent.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ChaoHoi\ChaoHoi_Parent.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChaoHoi\ucChaoHoi.Designer.vb">
+      <DependentUpon>ucChaoHoi.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ChaoHoi\ucChaoHoi.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="ChuCai\ChuCai_Parent.Designer.vb">
       <DependentUpon>ChuCai_Parent.vb</DependentUpon>
     </Compile>
@@ -80,6 +92,12 @@
       <DependentUpon>ucTracNghiem.vb</DependentUpon>
     </Compile>
     <Compile Include="ChuCai\ucTracNghiem.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ChuCai\ucVietTheo.Designer.vb">
+      <DependentUpon>ucVietTheo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ChuCai\ucVietTheo.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Form1.vb">
@@ -130,6 +148,12 @@
     </Compile>
     <Compile Include="GiaoTrinh\ucTuVung.vb">
       <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Kanji\Kanji_Parent.Designer.vb">
+      <DependentUpon>Kanji_Parent.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Kanji\Kanji_Parent.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Model\BaiHoc_Object.vb" />
     <Compile Include="Model\BangChuCai_Object.vb" />
@@ -188,11 +212,20 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="ChaoHoi\ChaoHoi_Parent.resx">
+      <DependentUpon>ChaoHoi_Parent.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChaoHoi\ucChaoHoi.resx">
+      <DependentUpon>ucChaoHoi.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ChuCai\ChuCai_Parent.resx">
       <DependentUpon>ChuCai_Parent.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ChuCai\ucTracNghiem.resx">
       <DependentUpon>ucTracNghiem.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChuCai\ucVietTheo.resx">
+      <DependentUpon>ucVietTheo.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
@@ -220,6 +253,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GiaoTrinh\ucTuVung.resx">
       <DependentUpon>ucTuVung.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kanji\Kanji_Parent.resx">
+      <DependentUpon>Kanji_Parent.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -251,6 +287,8 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+    <None Include="Resources\Kanji.xlsx" />
+    <None Include="Resources\TuVung.xlsx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\IconFiles\" />
@@ -275,12 +313,34 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\AudioFiles\1 - 1 - Kotoba.mp3" />
-    <Content Include="Resources\AudioFiles\1 - 2 - Bunkei.mp3" />
-    <Content Include="Resources\AudioFiles\1 - 3 - Reibun.mp3" />
-    <Content Include="Resources\AudioFiles\1 - 5 - Kaiwa.mp3" />
-    <Content Include="Resources\AudioFiles\Bai1_Kotoba_1.mp3" />
+    <Content Include="Resources\AudioFiles\Chao_0.mp3" />
+    <Content Include="Resources\AudioFiles\Chao_1.mp3" />
+    <Content Include="Resources\AudioFiles\Chao_2.mp3" />
+    <Content Include="Resources\AudioFiles\Chao_3.mp3" />
+    <Content Include="Resources\AudioFiles\Chao_4.mp3" />
+    <Content Include="Resources\AudioFiles\Chao_5.mp3" />
+    <Content Include="Resources\AudioFiles\Chao_6.mp3" />
+    <Content Include="Resources\AudioFiles\Chao_7.mp3" />
+    <Content Include="Resources\AudioFiles\Chao_8.mp3" />
+    <Content Include="Resources\AudioFiles\SoDem_1.mp3" />
+    <Content Include="Resources\AudioFiles\SoDem_10.mp3" />
+    <Content Include="Resources\AudioFiles\SoDem_11.mp3" />
+    <Content Include="Resources\AudioFiles\SoDem_12.mp3" />
+    <Content Include="Resources\AudioFiles\SoDem_13.mp3" />
+    <Content Include="Resources\AudioFiles\SoDem_14.mp3" />
+    <Content Include="Resources\AudioFiles\SoDem_2.mp3" />
+    <Content Include="Resources\AudioFiles\SoDem_3.mp3" />
+    <Content Include="Resources\AudioFiles\SoDem_4.mp3" />
+    <Content Include="Resources\AudioFiles\SoDem_5.mp3" />
+    <Content Include="Resources\AudioFiles\SoDem_6.mp3" />
+    <Content Include="Resources\AudioFiles\SoDem_7.mp3" />
+    <Content Include="Resources\AudioFiles\SoDem_8.mp3" />
+    <Content Include="Resources\AudioFiles\SoDem_9.mp3" />
     <Content Include="Resources\ImageFiles\Bai1_Kotoba_1.jpg" />
+    <Content Include="Resources\ImageFiles\Viet_Hiragana_1.png" />
+    <Content Include="Resources\ImageFiles\Viet_Hiragana_2.png" />
+    <Content Include="Resources\ImageFiles\Viet_Katakana_1.png" />
+    <Content Include="Resources\ImageFiles\Viet_Katakana_2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

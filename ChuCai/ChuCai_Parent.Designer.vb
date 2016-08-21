@@ -28,8 +28,8 @@ Partial Class ChuCai_Parent
         Me.btnVietTheo = New System.Windows.Forms.Button()
         Me.pnMainControl = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.cbShowLama = New System.Windows.Forms.CheckBox()
         Me.lblThongBao = New System.Windows.Forms.Label()
+        Me.cbShowLama = New System.Windows.Forms.CheckBox()
         Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -94,6 +94,16 @@ Partial Class ChuCai_Parent
         Me.Panel2.Size = New System.Drawing.Size(574, 70)
         Me.Panel2.TabIndex = 2
         '
+        'lblThongBao
+        '
+        Me.lblThongBao.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.lblThongBao.ForeColor = System.Drawing.Color.Maroon
+        Me.lblThongBao.Location = New System.Drawing.Point(152, 0)
+        Me.lblThongBao.Name = "lblThongBao"
+        Me.lblThongBao.Padding = New System.Windows.Forms.Padding(0, 20, 0, 0)
+        Me.lblThongBao.Size = New System.Drawing.Size(422, 70)
+        Me.lblThongBao.TabIndex = 1
+        '
         'cbShowLama
         '
         Me.cbShowLama.AutoSize = True
@@ -103,16 +113,6 @@ Partial Class ChuCai_Parent
         Me.cbShowLama.TabIndex = 0
         Me.cbShowLama.Text = "Show Lama"
         Me.cbShowLama.UseVisualStyleBackColor = True
-        '
-        'lblThongBao
-        '
-        Me.lblThongBao.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.lblThongBao.ForeColor = System.Drawing.Color.Maroon
-        Me.lblThongBao.Location = New System.Drawing.Point(149, 0)
-        Me.lblThongBao.Name = "lblThongBao"
-        Me.lblThongBao.Padding = New System.Windows.Forms.Padding(0, 20, 0, 0)
-        Me.lblThongBao.Size = New System.Drawing.Size(422, 70)
-        Me.lblThongBao.TabIndex = 1
         '
         'ChuCai_Parent
         '
@@ -125,6 +125,7 @@ Partial Class ChuCai_Parent
         Me.Controls.Add(Me.btnTracNghiem)
         Me.Controls.Add(Me.btnKatakana)
         Me.Controls.Add(Me.btnHinagana)
+        Me.MaximizeBox = False
         Me.Name = "ChuCai_Parent"
         Me.Text = "Khởi động cùng bản chữ cái nào"
         Me.Panel2.ResumeLayout(False)

@@ -234,6 +234,7 @@ Partial Class ThemTuVung
         Me.Controls.Add(Me.tbTuVung)
         Me.Controls.Add(Me.cbBaiHoc)
         Me.Controls.Add(Me.ptbAnhMinhHoa)
+        Me.MaximizeBox = False
         Me.Name = "ThemTuVung"
         Me.Text = "Thêm từ vựng mới"
         CType(Me.ptbAnhMinhHoa, System.ComponentModel.ISupportInitialize).EndInit()

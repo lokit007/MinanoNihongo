@@ -137,6 +137,7 @@ Partial Class Form1
         Me.Controls.Add(Me.btnBaiThi)
         Me.Controls.Add(Me.btnKanji)
         Me.Controls.Add(Me.btnTuVung)
+        Me.MaximizeBox = False
         Me.Name = "Form1"
         Me.Text = "Minano Nihongo cùng lokit007"
         Me.ResumeLayout(False)

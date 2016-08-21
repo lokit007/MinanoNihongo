@@ -47,3 +47,7 @@ E:\DUAN\VBNET\MinanoNihongo\MinanoNihongo\MinanoNihongo\obj\Debug\MinanoNihongo.
 E:\DUAN\VBNET\MinanoNihongo\MinanoNihongo\MinanoNihongo\obj\Debug\MinanoNihongo.vbprojResolveAssemblyReference.cache
 E:\DUAN\VBNET\MinanoNihongo\MinanoNihongo\MinanoNihongo\obj\Debug\MinanoNihongo.ThemTuVung.resources
 E:\DUAN\VBNET\MinanoNihongo\MinanoNihongo\MinanoNihongo\obj\Debug\MinanoNihongo.ucKiemTra.resources
+E:\DUAN\VBNET\MinanoNihongo\MinanoNihongo\MinanoNihongo\obj\Debug\MinanoNihongo.Kanji_Parent.resources
+E:\DUAN\VBNET\MinanoNihongo\MinanoNihongo\MinanoNihongo\obj\Debug\MinanoNihongo.ChaoHoi_Parent.resources
+E:\DUAN\VBNET\MinanoNihongo\MinanoNihongo\MinanoNihongo\obj\Debug\MinanoNihongo.ucChaoHoi.resources
+E:\DUAN\VBNET\MinanoNihongo\MinanoNihongo\MinanoNihongo\obj\Debug\MinanoNihongo.ucVietTheo.resources

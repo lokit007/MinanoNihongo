@@ -3,6 +3,7 @@ Imports System.Runtime.InteropServices
 Imports System.Data.SqlClient
 Imports System.Text
 Imports System.IO
+Imports WMPLib
 
 Public Class ThemTuVung
     Private Declare Function record Lib "winmm.dll" Alias "mciSendStringA" (ByVal lpstrCommand As String,
@@ -16,6 +17,7 @@ Public Class ThemTuVung
     Private connect As New ConnectData
     Private conn As SqlConnection
     Private lstViDuAdd As New Dictionary(Of String, ViDu_Object)
+    Private audio As New WindowsMediaPlayer
 
     Private Sub ThemTuVung_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         conn = connect.getConnect
@@ -82,7 +84,7 @@ Public Class ThemTuVung
             conn.Close()
 
             Return dtResult.Rows(0).Item("NewIdTuVung")
-            
+
         Catch ex As Exception
             Throw
         End Try
@@ -100,10 +102,6 @@ Public Class ThemTuVung
     Private Sub btnLuuDung_Click(sender As Object, e As EventArgs) Handles btnLuuDung.Click
         Timer1.Stop()
 
-        'If File.Exists(pathSource) Then
-        '    File.Delete(pathSource)
-        'End If
-
         record("save recsound " & pathSource, "", 0, 0)
         record("close recsound", "", 0, 0)
         tbAmDieu.Text = pathSource
@@ -111,12 +109,13 @@ Public Class ThemTuVung
     End Sub
 
     Private Sub btnNgheLai_Click(sender As Object, e As EventArgs) Handles btnNgheLai.Click
-        'My.Computer.Audio.Play("D:\mic.wav", AudioPlayMode.Background)
         Try
-            Dim audio As New AxWMPLib.AxWindowsMediaPlayer
-            audio.URL = tbAmDieu.Text
-            audio.Ctlcontrols.play()
-
+            If audio.playState <> WMPPlayState.wmppsPlaying Then
+                audio.URL = tbAmDieu.Text.Trim
+                audio.controls.play()
+            Else
+                audio.controls.stop()
+            End If
         Catch ex As Exception
 
         End Try

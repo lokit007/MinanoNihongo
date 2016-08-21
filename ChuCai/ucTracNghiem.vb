@@ -1,6 +1,7 @@
 ﻿Public Class ucTracNghiem
     Private bangChuCai As New BangChuCai_Object()
     Private list As New List(Of ChuCai_Object)
+    Private listTam As New List(Of ChuCai_Object)
     Private hoi As ChuCai_Object
     Private traLoi1 As ChuCai_Object
     Private traLoi2 As ChuCai_Object
@@ -12,6 +13,7 @@
     Public Sub SetListTracNghiem()
         For Each cc In bangChuCai.bangChuCai
             list.Add(cc.Value)
+            listTam.Add(cc.Value)
         Next
         If Not list Is Nothing Then
             lblTong.Text = "Tổng số từ : " & list.Count
@@ -22,26 +24,22 @@
     End Sub
 
     Private Sub RanDomCauHoi()
-        If Not list Is Nothing Then
+        If Not listTam Is Nothing Then
             Dim rd As New Random
-            Dim max As Integer = list.Count
-            Dim i As Integer = rd.Next(max)
-            Dim i1 As Integer = rd.Next(max)
-            Dim i2 As Integer = rd.Next(max)
-            Dim i3 As Integer = rd.Next(max)
-            While i1 = i
-                i1 = rd.Next(max)
+            hoi = listTam.Item(rd.Next(listTam.Count))
+            traLoi1 = list.Item(rd.Next(list.Count))
+            traLoi2 = list.Item(rd.Next(list.Count))
+            traLoi3 = list.Item(rd.Next(list.Count))
+            While hoi.Equals(traLoi1)
+                traLoi1 = list.Item(rd.Next(list.Count))
             End While
-            While i2 = i Or i2 = i1
-                i2 = rd.Next(max)
+            While hoi.Equals(traLoi2) OrElse traLoi1.Equals(traLoi2)
+                traLoi2 = list.Item(rd.Next(list.Count))
             End While
-            While i3 = i Or i3 = i1 Or i3 = i2
-                i3 = rd.Next(max)
+            While hoi.Equals(traLoi3) OrElse traLoi1.Equals(traLoi3) OrElse traLoi2.Equals(traLoi3)
+                traLoi3 = list.Item(rd.Next(list.Count))
             End While
-            hoi = list.Item(i)
-            traLoi1 = list.Item(i1)
-            traLoi2 = list.Item(i2)
-            traLoi3 = list.Item(i3)
+
             lblCauHoi.Text = hoi.lama
             Select Case rd.Next(1, 4)
                 Case 1
@@ -96,6 +94,7 @@
         If rdbHinagana.Checked Then
             If hoi.hinagana = btnTraLoi1.Text Then
                 nDung += 1
+                listTam.Remove(hoi)
             Else
                 nSai += 1
             End If
@@ -103,6 +102,7 @@
         ElseIf rdbKatakana.Checked Then
             If hoi.katakana = btnTraLoi1.Text Then
                 nDung += 1
+                listTam.Remove(hoi)
             Else
                 nSai += 1
             End If
@@ -110,6 +110,7 @@
         Else
             If hoi.hinagana = btnTraLoi1.Text Or hoi.katakana = btnTraLoi1.Text Then
                 nDung += 1
+                listTam.Remove(hoi)
             Else
                 nSai += 1
             End If
@@ -124,6 +125,7 @@
         If rdbHinagana.Checked Then
             If hoi.hinagana = btnTraLoi2.Text Then
                 nDung += 1
+                listTam.Remove(hoi)
             Else
                 nSai += 1
             End If
@@ -131,6 +133,7 @@
         ElseIf rdbKatakana.Checked Then
             If hoi.katakana = btnTraLoi2.Text Then
                 nDung += 1
+                listTam.Remove(hoi)
             Else
                 nSai += 1
             End If
@@ -138,6 +141,7 @@
         Else
             If hoi.hinagana = btnTraLoi2.Text Or hoi.katakana = btnTraLoi2.Text Then
                 nDung += 1
+                listTam.Remove(hoi)
             Else
                 nSai += 1
             End If
@@ -152,6 +156,7 @@
         If rdbHinagana.Checked Then
             If hoi.hinagana = btnTraLoi3.Text Then
                 nDung += 1
+                listTam.Remove(hoi)
             Else
                 nSai += 1
             End If
@@ -159,6 +164,7 @@
         ElseIf rdbKatakana.Checked Then
             If hoi.katakana = btnTraLoi3.Text Then
                 nDung += 1
+                listTam.Remove(hoi)
             Else
                 nSai += 1
             End If
@@ -166,6 +172,7 @@
         Else
             If hoi.hinagana = btnTraLoi3.Text Or hoi.katakana = btnTraLoi3.Text Then
                 nDung += 1
+                listTam.Remove(hoi)
             Else
                 nSai += 1
             End If
@@ -180,6 +187,7 @@
         If rdbHinagana.Checked Then
             If hoi.hinagana = btnTraLoi4.Text Then
                 nDung += 1
+                listTam.Remove(hoi)
             Else
                 nSai += 1
             End If
@@ -187,6 +195,7 @@
         ElseIf rdbKatakana.Checked Then
             If hoi.katakana = btnTraLoi4.Text Then
                 nDung += 1
+                listTam.Remove(hoi)
             Else
                 nSai += 1
             End If
@@ -194,6 +203,7 @@
         Else
             If hoi.hinagana = btnTraLoi4.Text Or hoi.katakana = btnTraLoi4.Text Then
                 nDung += 1
+                listTam.Remove(hoi)
             Else
                 nSai += 1
             End If

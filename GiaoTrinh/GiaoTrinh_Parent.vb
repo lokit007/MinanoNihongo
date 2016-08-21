@@ -129,29 +129,27 @@ Public Class GiaoTrinh_Parent
                     tuVung = New TuVung_Object
                     tuVung.idTuVung = row.Item("IdTuVung")
                     tuVung.tuVung = row.Item("TuVung")
-                    tuVung.hanTu = row.Item("HanTu")
+                    If Not IsDBNull(row.Item("HanTu")) Then
+                        tuVung.hanTu = row.Item("HanTu")
+                    End If
                     tuVung.nguNghia = row.Item("Nghia")
-                    tuVung.urlAnhMoTa = row.Item("AnhMoTa")
-                    tuVung.urlAmDoc = row.Item("AmDieu")
+                    If Not IsDBNull(row.Item("AnhMoTa")) Then
+                        tuVung.urlAnhMoTa = row.Item("AnhMoTa")
+                    End If
+                    If Not IsDBNull(row.Item("AmDieu")) Then
+                        tuVung.urlAmDoc = row.Item("AmDieu")
+                    End If
                     tuVung.lstViDu = getListViDu(getViDu(tuVung.idTuVung, "TUVUNG"))
-
                     lst.Add(tuVung)
-
                 Next
-
                 Return lst
-
             Else
                 Return Nothing
-
             End If
-
         Catch ex As Exception
             MsgBox(ex.ToString)
             Throw
-
         End Try
-
     End Function
 
     Private Function getListNguPhap(ByVal dtResult As DataTable) As List(Of NguPhap_Object)

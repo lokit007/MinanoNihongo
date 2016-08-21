@@ -114,6 +114,7 @@ Partial Class GiaoTrinh_Parent
         Me.Controls.Add(Me.btnNguPhap)
         Me.Controls.Add(Me.btnTuVung)
         Me.Controls.Add(Me.clstBaiHoc)
+        Me.MaximizeBox = False
         Me.Name = "GiaoTrinh_Parent"
         Me.Text = "Giáo trình Minano Nihongo"
         Me.ResumeLayout(False)

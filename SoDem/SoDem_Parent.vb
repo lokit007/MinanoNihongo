@@ -14,10 +14,6 @@
         pnMainContent.Controls.Add(uc)
     End Sub
 
-    Private Sub btnTienTe_Click(sender As Object, e As EventArgs) Handles btnTienTe.Click
-        
-    End Sub
-
     Private Sub SoDem_Parent_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim uc As New ucSoDem
         uc.initList(taiNguyen.soDem)

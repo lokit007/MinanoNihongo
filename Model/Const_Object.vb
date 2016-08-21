@@ -6,6 +6,7 @@
     Public ngayTrongThang As Dictionary(Of String, SoDem_Object)
     Public ngayTrongTuan As Dictionary(Of String, SoDem_Object)
     Public tienTe As Dictionary(Of String, SoDem_Object)
+    Public chaoHoi As Dictionary(Of String, String)
 
     Public Sub New()
         'Khơi tạo bảng chữ cái
@@ -22,6 +23,8 @@
         initNgayTrongTuan()
         'khởi tạo tiền tệ
         initTienTe()
+        'khởi tạo chào hỏi
+        initChaoHoi()
     End Sub
 
     Private Sub initBangChuCai()
@@ -329,4 +332,17 @@
         tienTe.Add("Rupee", New SoDem_Object With {.hinagana = "にちようび", .kanji = "日曜日", .lama = "nichiyo.bi", .nguNghia = "Chủ nhật"})
         tienTe.Add("Nhân dân tệ", New SoDem_Object With {.hinagana = "にちようび", .kanji = "日曜日", .lama = "nichiyo.bi", .nguNghia = "Chủ nhật"})
     End Sub
+
+    Private Sub initChaoHoi()
+        chaoHoi = New Dictionary(Of String, String)
+        chaoHoi.Add("おはようございます", "Chào buổi sáng")
+        chaoHoi.Add("こんにちは", "Xin chào, chào buổi chiều")
+        chaoHoi.Add("こんばんは", "Chào buổi tối")
+        chaoHoi.Add("おやすみなさい", "Chúc ngủ ngon")
+        chaoHoi.Add("さようなら", "Chào tạm biệt")
+        chaoHoi.Add("ありがとうございます", "Xin cảm ơn")
+        chaoHoi.Add("すみません", "Xin lỗi…")
+        chaoHoi.Add("おねがいします", "Xin vui lòng")
+    End Sub
+
 End Class

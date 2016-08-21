@@ -18,4 +18,26 @@
         Me.Show()
     End Sub
 
+    Private Sub btnChao_Click(sender As Object, e As EventArgs) Handles btnChao.Click
+        Dim soDem As New ChaoHoi_Parent()
+        Me.Hide()
+        soDem.ShowDialog()
+        Me.Show()
+    End Sub
+
+    Private Sub btnTuVung_Click(sender As Object, e As EventArgs) Handles btnTuVung.Click
+        Dim soDem As New GiaoTrinh_Parent()
+        Me.Hide()
+        soDem.ShowDialog()
+        Me.Show()
+    End Sub
+
+    Private Sub btnKanji_Click(sender As Object, e As EventArgs) Handles btnKanji.Click
+        Dim soDem As New Kanji_Parent()
+        Me.Hide()
+        soDem.ShowDialog()
+        Me.Show()
+    End Sub
+
+
 End Class

@@ -31,11 +31,11 @@ Partial Class ucKiemTra
         Me.lbCauHoi = New System.Windows.Forms.Label()
         Me.audioCauHoi = New AxWMPLib.AxWindowsMediaPlayer()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.btnBoQua = New System.Windows.Forms.Button()
-        Me.lbSoCauDung = New System.Windows.Forms.Label()
-        Me.lbTongCau = New System.Windows.Forms.Label()
-        Me.lbThoiGian = New System.Windows.Forms.Label()
         Me.cbShowThoiGian = New System.Windows.Forms.CheckBox()
+        Me.lbThoiGian = New System.Windows.Forms.Label()
+        Me.lbTongCau = New System.Windows.Forms.Label()
+        Me.lbSoCauDung = New System.Windows.Forms.Label()
+        Me.btnBoQua = New System.Windows.Forms.Button()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         CType(Me.audioCauHoi, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -116,36 +116,15 @@ Partial Class ucKiemTra
         Me.GroupBox1.Text = "Thống kê"
         Me.GroupBox1.Visible = False
         '
-        'btnBoQua
+        'cbShowThoiGian
         '
-        Me.btnBoQua.Font = New System.Drawing.Font("Times New Roman", 14.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnBoQua.Location = New System.Drawing.Point(433, 179)
-        Me.btnBoQua.Name = "btnBoQua"
-        Me.btnBoQua.Size = New System.Drawing.Size(106, 33)
-        Me.btnBoQua.TabIndex = 5
-        Me.btnBoQua.Text = "BỎ QUA"
-        Me.btnBoQua.UseVisualStyleBackColor = True
-        Me.btnBoQua.Visible = False
-        '
-        'lbSoCauDung
-        '
-        Me.lbSoCauDung.AutoSize = True
-        Me.lbSoCauDung.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbSoCauDung.Location = New System.Drawing.Point(41, 19)
-        Me.lbSoCauDung.Name = "lbSoCauDung"
-        Me.lbSoCauDung.Size = New System.Drawing.Size(135, 13)
-        Me.lbSoCauDung.TabIndex = 0
-        Me.lbSoCauDung.Text = "Số câu trả lời đúng : 0"
-        '
-        'lbTongCau
-        '
-        Me.lbTongCau.AutoSize = True
-        Me.lbTongCau.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbTongCau.Location = New System.Drawing.Point(41, 42)
-        Me.lbTongCau.Name = "lbTongCau"
-        Me.lbTongCau.Size = New System.Drawing.Size(161, 13)
-        Me.lbTongCau.TabIndex = 0
-        Me.lbTongCau.Text = "Tổng sô câu cần học : 100"
+        Me.cbShowThoiGian.Checked = True
+        Me.cbShowThoiGian.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.cbShowThoiGian.Location = New System.Drawing.Point(263, 21)
+        Me.cbShowThoiGian.Name = "cbShowThoiGian"
+        Me.cbShowThoiGian.Size = New System.Drawing.Size(24, 34)
+        Me.cbShowThoiGian.TabIndex = 2
+        Me.cbShowThoiGian.UseVisualStyleBackColor = True
         '
         'lbThoiGian
         '
@@ -158,15 +137,36 @@ Partial Class ucKiemTra
         Me.lbThoiGian.Text = "01:00"
         Me.lbThoiGian.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'cbShowThoiGian
+        'lbTongCau
         '
-        Me.cbShowThoiGian.Checked = True
-        Me.cbShowThoiGian.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.cbShowThoiGian.Location = New System.Drawing.Point(263, 21)
-        Me.cbShowThoiGian.Name = "cbShowThoiGian"
-        Me.cbShowThoiGian.Size = New System.Drawing.Size(24, 34)
-        Me.cbShowThoiGian.TabIndex = 2
-        Me.cbShowThoiGian.UseVisualStyleBackColor = True
+        Me.lbTongCau.AutoSize = True
+        Me.lbTongCau.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbTongCau.Location = New System.Drawing.Point(41, 42)
+        Me.lbTongCau.Name = "lbTongCau"
+        Me.lbTongCau.Size = New System.Drawing.Size(161, 13)
+        Me.lbTongCau.TabIndex = 0
+        Me.lbTongCau.Text = "Tổng sô câu cần học : 100"
+        '
+        'lbSoCauDung
+        '
+        Me.lbSoCauDung.AutoSize = True
+        Me.lbSoCauDung.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbSoCauDung.Location = New System.Drawing.Point(41, 19)
+        Me.lbSoCauDung.Name = "lbSoCauDung"
+        Me.lbSoCauDung.Size = New System.Drawing.Size(135, 13)
+        Me.lbSoCauDung.TabIndex = 0
+        Me.lbSoCauDung.Text = "Số câu trả lời đúng : 0"
+        '
+        'btnBoQua
+        '
+        Me.btnBoQua.Font = New System.Drawing.Font("Times New Roman", 14.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnBoQua.Location = New System.Drawing.Point(433, 179)
+        Me.btnBoQua.Name = "btnBoQua"
+        Me.btnBoQua.Size = New System.Drawing.Size(106, 33)
+        Me.btnBoQua.TabIndex = 5
+        Me.btnBoQua.Text = "BỎ QUA"
+        Me.btnBoQua.UseVisualStyleBackColor = True
+        Me.btnBoQua.Visible = False
         '
         'Timer1
         '

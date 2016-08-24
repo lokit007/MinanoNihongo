@@ -296,8 +296,10 @@ Public Class GiaoTrinh_Parent
             strSQL.Append("inner join TUVUNGBAI on TUVUNG.IdTuVung = TUVUNGBAI.TuVung ")
             strSQL.Append("inner join BAIHOC on TUVUNGBAI .BaiHoc = BAIHOC .IdBaiHoc ")
 
-            If lstBai.Count > 0 Then
+            If Not IsNothing(lstBai) AndAlso lstBai.Count > 0 Then
                 strSQL.Append("where TenBaiHoc in (" & String.Join(",", lstBai) & ")")
+            Else
+                strSQL.Append("where TenBaiHoc like N'Bài 1'")
             End If
 
             cmd.CommandText = strSQL.ToString
@@ -336,8 +338,10 @@ Public Class GiaoTrinh_Parent
             strSQL.Append("inner join NGUPHAPBAI on NGUPHAP.IdNguPhap = NGUPHAPBAI.NguPhap ")
             strSQL.Append("inner join BAIHOC on NGUPHAPBAI.BaiHoc = BAIHOC.IdBaiHoc ")
 
-            If lstBai.Count > 0 Then
+            If Not IsNothing(lstBai) AndAlso lstBai.Count > 0 Then
                 strSQL.Append("where TenBaiHoc in (" & String.Join(",", lstBai) & ")")
+            Else
+                strSQL.Append("where TenBaiHoc like N'Bài 1'")
             End If
 
             cmd.CommandText = strSQL.ToString
@@ -377,8 +381,10 @@ Public Class GiaoTrinh_Parent
             strSQL.Append("inner join HOITHOAIBAI on HOITHOAIBAI.HoiThoai = HOITHOAI.IdHoiThoai ")
             strSQL.Append("inner join BAIHOC on HOITHOAIBAI.HoiThoai = HOITHOAIBAI.BaiHoc ")
 
-            If lstBai.Count > 0 Then
+            If Not IsNothing(lstBai) AndAlso lstBai.Count > 0 Then
                 strSQL.Append("where TenBaiHoc in (" & String.Join(",", lstBai) & ")")
+            Else
+                strSQL.Append("where TenBaiHoc like N'Bài 1'")
             End If
 
             cmd.CommandText = strSQL.ToString

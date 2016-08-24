@@ -1,8 +1,10 @@
 ﻿Public Class ucVietTheo
     Private imageCurent As String = "Hiragana_1"
+    Private pathRoot As String = My.Application.Info.DirectoryPath.Replace("\bin\Debug", "").Replace("\bin\Release", "")
+
     Public Sub loadBangChuCai(ByVal bang As String)
         Try
-            PictureBox1.Image = Image.FromFile(Application.StartupPath.Replace("bin\Debug", "Resources\ImageFiles\Viet_") & bang & ".png")
+            PictureBox1.Image = Image.FromFile(pathRoot & "\Resources\ImageFiles\Viet_" & bang & ".png")
         Catch ex As Exception
             MsgBox("Không load được dữ liệu!")
         End Try
@@ -19,6 +21,8 @@
             Case "Katakana_2"
                 imageCurent = "Hiragana_1"
         End Select
-        PictureBox1.Image = Image.FromFile(Application.StartupPath.Replace("bin\Debug", "Resources\ImageFiles\Viet_") & imageCurent & ".png")
+        If System.IO.File.Exists(pathRoot & "\Resources\ImageFiles\Viet_" & imageCurent & ".png") Then
+            PictureBox1.Image = Image.FromFile(pathRoot & "\Resources\ImageFiles\Viet_" & imageCurent & ".png")
+        End If
     End Sub
 End Class

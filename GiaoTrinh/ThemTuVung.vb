@@ -11,7 +11,7 @@ Public Class ThemTuVung
                                                                             ByVal uReturnLength As Integer,
                                                                             ByVal hwndCallback As Integer) As Integer
 
-    Private pathSource As String = My.Application.Info.DirectoryPath.Replace("bin\Debug", "Resources\AudioFiles\tuvung_")
+    Private pathSource As String = Application.StartupPath.Replace("\bin\Debug", "").Replace("\bin\Release", "") & "Resources\AudioFiles\tuvung_"
 
     Private giay As Integer = 0
     Private connect As New ConnectData
@@ -84,11 +84,9 @@ Public Class ThemTuVung
             conn.Close()
 
             Return dtResult.Rows(0).Item("NewIdTuVung")
-
         Catch ex As Exception
             Throw
         End Try
-
     End Function
 
     Private Sub btnGhiAm_Click(sender As Object, e As EventArgs) Handles btnGhiAm.Click
@@ -96,22 +94,21 @@ Public Class ThemTuVung
         Timer1.Start()
         record("open new Type waveaudio Alias recsound", "", 0, 0)
         record("record recsound", "", 0, 0)
-
     End Sub
 
     Private Sub btnLuuDung_Click(sender As Object, e As EventArgs) Handles btnLuuDung.Click
         Timer1.Stop()
-
         record("save recsound " & pathSource, "", 0, 0)
         record("close recsound", "", 0, 0)
         tbAmDieu.Text = pathSource
-
     End Sub
 
     Private Sub btnNgheLai_Click(sender As Object, e As EventArgs) Handles btnNgheLai.Click
         Try
             If audio.playState <> WMPPlayState.wmppsPlaying Then
-                audio.URL = tbAmDieu.Text.Trim
+                If System.IO.File.Exists(tbAmDieu.Text.Trim) Then
+                    audio.URL = tbAmDieu.Text.Trim
+                End If
                 audio.controls.play()
             Else
                 audio.controls.stop()
@@ -128,7 +125,6 @@ Public Class ThemTuVung
 
         If btnResult = DialogResult.OK Then
             ptbAnhMinhHoa.Image = Image.FromFile(OpenFileDialog1.FileName)
-
         End If
 
     End Sub
@@ -136,16 +132,13 @@ Public Class ThemTuVung
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         giay += 1
         tbAmDieu.Text = CInt(giay / 60).ToString("00") & ":" & (giay Mod 60).ToString("00")
-
     End Sub
 
     Private Sub lbDinhKem_Click(sender As Object, e As EventArgs) Handles lbDinhKem.Click
         OpenFileDialog1.Filter = "MP3|*.mp3|WAV|*.wav"
         Dim btnResult As DialogResult = OpenFileDialog1.ShowDialog
-
         If btnResult = DialogResult.OK Then
             tbAmDieu.Text = OpenFileDialog1.FileName
-
         End If
 
     End Sub
@@ -153,7 +146,6 @@ Public Class ThemTuVung
     Private Sub btnXoaTrong_Click(sender As Object, e As EventArgs) Handles btnXoaTrong.Click
         tbViDu.Text = ""
         tbDichNghia.Text = ""
-
     End Sub
 
     Private Sub btnThemViDu_Click(sender As Object, e As EventArgs) Handles btnThemViDu.Click
@@ -163,35 +155,27 @@ Public Class ThemTuVung
                     lstViDuAdd.Add(tbViDu.Text,
                         New ViDu_Object With {.noiDung = tbViDu.Text, .nguNghia = tbDichNghia.Text})
                     lbViDu.DataSource = lstViDuAdd.ToList
-
                 Else
                     tbDichNghia.Focus()
-
                 End If
             Else
                 tbViDu.Focus()
-
             End If
-
         Catch ex As Exception
             tbViDu.Text = ""
             tbDichNghia.Text = ""
             tbViDu.Focus()
             MsgBox("Đã tồn tại ví dụ trong danh sách.", MsgBoxStyle.OkOnly, "Đã tồn tại trong danh sách")
-
         End Try
     End Sub
 
     Private Sub lbViDu_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lbViDu.SelectedIndexChanged
         If lbViDu.SelectedIndex > -1 Then
             Dim viDu As ViDu_Object = lstViDuAdd.Item(lbViDu.SelectedItem.key)
-
             If Not IsNothing(viDu) Then
                 tbViDu.Text = viDu.noiDung
                 tbDichNghia.Text = viDu.nguNghia
-
             End If
-
         End If
     End Sub
 
@@ -203,20 +187,17 @@ Public Class ThemTuVung
                 If btnSelect = DialogResult.Yes Then
                     lstViDuAdd.Remove(lbViDu.SelectedItem.key)
                     lbViDu.DataSource = lstViDuAdd.ToList
-
                 End If
-
             Catch ex As Exception
                 MsgBox(ex.ToString)
             End Try
-
         End If
     End Sub
 
     Private Sub btnThemTuVung_Click(sender As Object, e As EventArgs) Handles btnThemTuVung.Click
         Dim idTuVung As Integer = GetNewIdTuVung()
         Dim cmd As New SqlCommand
-        Dim pathImage As String = My.Application.Info.DirectoryPath.Replace("bin\Debug", "Resources\ImageFiles\tuvung_") & idTuVung & ".png"
+        Dim pathImage As String = Application.StartupPath.Replace("\bin\Debug", "").Replace("\bin\Release", "") & "\Resources\ImageFiles\tuvung_" & idTuVung & ".png"
         Dim pathAmThanh As String = ""
 
         Try
@@ -229,28 +210,20 @@ Public Class ThemTuVung
             cmd.Parameters.AddWithValue("@HanTu", tbHanTu.Text)
             cmd.Parameters.AddWithValue("@NguNghia", tbNguNghia.Text)
 
-
             Try
                 pathAmThanh = pathSource.Replace("wav", tbAmDieu.Text.Substring(tbAmDieu.Text.LastIndexOf(".") + 1))
-
                 If Not File.Exists(pathAmThanh) Then
                     File.Copy(tbAmDieu.Text, pathAmThanh)
-
                 End If
-
-                cmd.Parameters.AddWithValue("@Anh", pathImage.Substring(pathImage.LastIndexOf("\") + 1))
-
+                cmd.Parameters.AddWithValue("@Doc", pathAmThanh.Substring(pathAmThanh.LastIndexOf("\") + 1))
             Catch ex As Exception
-                cmd.Parameters.AddWithValue("@Anh", "")
-
+                cmd.Parameters.AddWithValue("@Doc", "")
             End Try
             Try
                 ptbAnhMinhHoa.Image.Save(pathImage, Imaging.ImageFormat.Png)
-                cmd.Parameters.AddWithValue("@Doc", pathAmThanh.Substring(pathAmThanh.LastIndexOf("\") + 1))
-
+                cmd.Parameters.AddWithValue("@Anh", pathImage.Substring(pathImage.LastIndexOf("\") + 1))
             Catch ex As Exception
-                cmd.Parameters.AddWithValue("@Doc", "")
-
+                cmd.Parameters.AddWithValue("@Anh", "")
             End Try
 
             'set output value
@@ -266,9 +239,7 @@ Public Class ThemTuVung
             If idTuVung > -1 Then
                 For Each vidu In lstViDuAdd
                     InsertViDu(idTuVung, "TUVUNG", vidu.Key, vidu.Value.nguNghia)
-
                 Next
-
             End If
 
             cmd.Dispose()
@@ -308,9 +279,7 @@ Public Class ThemTuVung
 
         Catch ex As Exception
             Throw
-
         End Try
-
     End Sub
 
 End Class

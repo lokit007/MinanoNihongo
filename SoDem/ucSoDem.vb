@@ -2,6 +2,7 @@
     Private list As New List(Of SoDem_Object)
     Private chiSo As Integer = 0
     Private max As Integer = 0
+    Private path As String = Application.StartupPath.Replace("\bin\Debug", "").Replace("\bin\Release", "") & "\Resources\AudioFiles\SoDem_"
 
     Public Sub initList(ByRef soDem As Dictionary(Of String, SoDem_Object))
         If Not soDem Is Nothing Then
@@ -20,6 +21,9 @@
         End If
         Try
             Dim so As SoDem_Object = list.Item(chiSo)
+            If System.IO.File.Exists(path & (CInt(so.nguNghia) + 1) & ".wav") Then
+                My.Computer.Audio.Play("", AudioPlayMode.Background)
+            End If
             btnChinh.Text = so.hinagana
             If cbShowKanji.Checked And so.kanji <> "" Then
                 btnChinh.Text &= "[" & so.kanji & "]"

@@ -5,6 +5,7 @@ Public Class ucTuVung
     Private tuVung As TuVung_Object
     Private audio As New WindowsMediaPlayer
     Private rd As New Random
+    Private path As String = My.Application.Info.DirectoryPath.Replace("\bin\Debug", "").Replace("\bin\Release", "")
 
     Public Sub InitListTuVung(ByRef lstTuVung As List(Of TuVung_Object))
         lst = lstTuVung
@@ -41,13 +42,11 @@ Public Class ucTuVung
     Private Sub ShowSelect()
         If Not IsNothing(tuVung) Then
             rbtnShowAll_CheckedChanged(Me, New EventArgs)
-
+            btnNgheLai_Click(Me, New EventArgs)
             Try
-                pcbAnhMinhHoa.Image = Image.FromFile("../../Resources/ImageFiles/" & tuVung.urlAnhMoTa)
-
+                pcbAnhMinhHoa.Image = Image.FromFile(path & "\Resources\ImageFiles\" & tuVung.urlAnhMoTa)
             Catch ex As Exception
                 pcbAnhMinhHoa.Image = Nothing
-
             End Try
 
             tbHanTu.Text = tuVung.hanTu
@@ -56,20 +55,15 @@ Public Class ucTuVung
             If Not IsNothing(tuVung.lstViDu) Then
                 For Each vidu As ViDu_Object In tuVung.lstViDu
                     tbViDu.AppendText(vidu.noiDung & vbCrLf)
-
                 Next
-
             End If
-
         Else
             pcbAnhMinhHoa.Image = Nothing
             tbTuVung.Text = ""
             tbHanTu.Text = ""
             tbNguNghia.Text = ""
             tbViDu.Text = ""
-
         End If
-
     End Sub
 
     Private Sub ShowTrangThai(mes, col1, col2)
@@ -96,19 +90,18 @@ Public Class ucTuVung
     End Sub
 
     Private Sub btnNgheLai_Click(sender As Object, e As EventArgs) Handles btnNgheLai.Click
+        path &= "\Resources\AudioFiles\" & tuVung.urlAmDoc
         Try
             If audio.playState <> WMPPlayState.wmppsPlaying Then
-                audio.URL = My.Application.Info.DirectoryPath.Replace("bin\Debug", "Resources\AudioFiles\") & tuVung.urlAmDoc
-                audio.controls.play()
-
+                If System.IO.File.Exists(path) Then
+                    audio.URL = path
+                    audio.controls.play()
+                End If
             Else
                 audio.controls.stop()
-
             End If
-
         Catch ex As Exception
             audio.close()
-
         End Try
 
     End Sub
@@ -120,39 +113,31 @@ Public Class ucTuVung
                     AndAlso String.Compare(tuVung.tuVung.Trim, tbTuVung.Text.Trim, True) = 0 Then
                     ShowTrangThai("Bạn có trí nhớ thật siêu phàm (y).", Color.Green, Color.Black)
                     btnThuoc_Click(sender, e)
-
                 Else
                     ShowTrangThai("Sai rồi :(. Vui lòng nhập lại", Color.Yellow, Color.Black)
                     tbTuVung.SelectAll()
                     tbTuVung.Focus()
-
                 End If
-
             ElseIf rbtnDichNghia.Checked Then
                 If Not String.IsNullOrEmpty(tbNguNghia.Text) _
                     AndAlso String.Compare(tuVung.nguNghia.Trim, tbNguNghia.Text.Trim.Trim, True) Then
                     ShowTrangThai("Bạn có trí nhớ thật siêu phàm (y).", Color.Green, Color.Black)
                     btnThuoc_Click(sender, e)
-
                 Else
                     ShowTrangThai("Sai rồi :(. Vui lòng nhập lại", Color.Yellow, Color.Black)
                     tbNguNghia.SelectAll()
                     tbNguNghia.Focus()
-
                 End If
             Else
                 ShowTrangThai("Chưa chọn đúng chức năng", Color.MediumVioletRed, Color.White)
-
             End If
         End If
-
     End Sub
 
     Private Sub btnThuoc_Click(sender As Object, e As EventArgs) Handles btnThuoc.Click
         If Not IsNothing(lst) AndAlso lst.Count > 0 Then
             lst.Remove(tuVung)
             btnTiep_Click(sender, e)
-
         Else
             ShowTrangThai("Chúc mừng bạn đã học xong (y).", Color.Green, Color.Black)
             pcbAnhMinhHoa.Image = Nothing
@@ -160,7 +145,6 @@ Public Class ucTuVung
             tbHanTu.Text = ""
             tbNguNghia.Text = ""
             tbViDu.Text = ""
-
         End If
 
     End Sub
@@ -169,7 +153,6 @@ Public Class ucTuVung
         If Not IsNothing(lst) AndAlso lst.Count > 0 Then
             tuVung = lst.Item(rd.Next(lst.Count))
             ShowSelect()
-
         Else
             ShowTrangThai("Chúc mừng bạn đã học xong (y).", Color.Green, Color.Black)
             pcbAnhMinhHoa.Image = Nothing
@@ -177,16 +160,13 @@ Public Class ucTuVung
             tbHanTu.Text = ""
             tbNguNghia.Text = ""
             tbViDu.Text = ""
-
         End If
-
     End Sub
 
     Private Sub btnThemTuMoi_Click(sender As Object, e As EventArgs) Handles btnThemTuMoi.Click
         Dim obj As New ThemTuVung
         obj.ShowDialog()
         My.Forms.GiaoTrinh_Parent.Refresh()
-
     End Sub
 
 End Class

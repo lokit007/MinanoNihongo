@@ -41,6 +41,12 @@
             End While
 
             lblCauHoi.Text = hoi.lama
+            Dim pathAmThanh As String = Application.StartupPath.Replace("\bin\Debug", "").Replace("\bin\Release", "") &
+                "\Resources\AudioFiles\ChuCai_" & hoi.lama & ".wav"
+            If System.IO.File.Exists(pathAmThanh) Then
+                My.Computer.Audio.Play(pathAmThanh, AudioPlayMode.Background)
+            End If
+
             Select Case rd.Next(1, 4)
                 Case 1
                     ShowCauHoi(hoi:=hoi, traloi1:=traLoi1, traloi2:=traLoi2, traloi3:=traLoi3)

@@ -138,7 +138,6 @@
                     btnTraLoi2.Text = traloi1.nguNghia
                     btnTraLoi3.Text = traloi2.nguNghia
                     btnTraLoi4.Text = traloi3.nguNghia
-
                 Case 2
                     audioCauHoi.Visible = False
                     lbCauHoi.Visible = True
@@ -160,10 +159,13 @@
                     btnTraLoi3.Text = traloi2.nguNghia
                     btnTraLoi4.Text = traloi3.nguNghia
                 Case Else
+                    Dim path As String = Application.StartupPath.Replace("\bin\Debug", "").Replace("\bin\Release", "") & "\Resources\AudioFiles\" & tuVung.urlAmDoc
                     If Not String.IsNullOrEmpty(tuVung.urlAmDoc) Then
                         audioCauHoi.Visible = True
-                        audioCauHoi.URL = My.Application.Info.DirectoryPath.Replace("bin\Debug", "Resources\AudioFiles\") & tuVung.urlAmDoc
-                        audioCauHoi.Ctlcontrols.play()
+                        If System.IO.File.Exists(path) Then
+                            audioCauHoi.URL = path
+                            audioCauHoi.Ctlcontrols.play()
+                        End If
                         lbCauHoi.Visible = False
                         lbCauHoi.Text = tuVung.hanTu
                     Else

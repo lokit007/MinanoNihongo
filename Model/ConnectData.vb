@@ -8,6 +8,8 @@ Public Class ConnectData
         Try
             conn = New SqlConnection With {.ConnectionString = "Data Source=(local);Initial Catalog=DbMinanoNihongo;Trusted_Connection=True;"}
             'conn = New SqlConnection With {.ConnectionString = "Data Source=(local);Initial Catalog=DbMinanoNihongo; User Id=sa; Password=123456;"}
+            'conn = New SqlConnection With {.ConnectionString = "Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Resources\DbMinanoNihongo.mdf;Integrated Security=True;"}
+
             Return conn
 
         Catch ex As Exception

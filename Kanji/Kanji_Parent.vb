@@ -6,7 +6,7 @@ Public Class Kanji_Parent
         Dim myconnection As System.Data.OleDb.OleDbConnection = Nothing
         Try
             Dim Mycommand As System.Data.OleDb.OleDbDataAdapter = Nothing
-            Dim strConnectionString As String = GetConnectionString(Application.StartupPath.Replace("bin\Debug", "Resources\Kanji.xlsx"))
+            Dim strConnectionString As String = GetConnectionString(Application.StartupPath.Replace("\bin\Debug", "").Replace("bin\Realse", "") & "\Resources\Kanji.xlsx")
             myconnection = New System.Data.OleDb.OleDbConnection(strConnectionString)
             Mycommand = New System.Data.OleDb.OleDbDataAdapter("select * from  [N5$]", myconnection)
             Dim dtResult As New DataTable

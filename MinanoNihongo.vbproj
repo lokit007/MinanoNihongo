@@ -299,9 +299,7 @@
     <None Include="Resources\Kanji.xlsx" />
     <None Include="Resources\TuVung.xlsx" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\IconFiles\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <COMReference Include="AxWMPLib">
       <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
@@ -465,6 +463,8 @@
     <Content Include="Resources\AudioFiles\SoDem_7.mp3" />
     <Content Include="Resources\AudioFiles\SoDem_8.mp3" />
     <Content Include="Resources\AudioFiles\SoDem_9.mp3" />
+    <Content Include="Resources\IconFiles\delete.ico" />
+    <Content Include="Resources\IconFiles\loading_animation.gif" />
     <Content Include="Resources\ImageFiles\Bai1_Kotoba_1.jpg" />
     <Content Include="Resources\ImageFiles\Bai1_Kotoba_1.png" />
     <Content Include="Resources\ImageFiles\Bai1_Kotoba_11.png" />
